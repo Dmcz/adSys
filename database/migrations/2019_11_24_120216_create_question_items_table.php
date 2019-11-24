@@ -15,15 +15,13 @@ class CreateQuestionItemsTable extends Migration
     {
         Schema::create('question_items', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->comment('所属用户id');
             $table->integer('question_id')->comment('所属问题id');
-            $table->tinyInteger('status')->comment('状态');
+            $table->tinyInteger('status')->default(0)->comment('状态');
             $table->string('title', 128)->default('')->comment('问题名称');
-            $table->json('value')->nullable(true)->comment('可能答案');
+            $table->text('value')->nullable(true)->default(0)->comment('可能答案');
             $table->timestamps();
             $table->softDeletes();
-
-            $table->index('user_id');
+            
             $table->index('question_id');
         });
     }

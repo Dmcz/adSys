@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Questions;
+use App\Models\QuestionItems;
 use App\User;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
@@ -77,12 +78,25 @@ class QuestionsController extends AdminController
         $form = new Form(new Questions);
 
         $form->select('user_id', __('所属用户'))->options(User::getKeyValueList());
-        $form->switch('status', __('是否显示'));
+        $form->switch('status', __('是否显示'))->states([
+            'on' => ['value'=>Questions::STATUS_SHOW, 'text'=>Questions::STATUS_TEXT[Questions::STATUS_SHOW], 'color' => Questions::STATUS_LABEL[Questions::STATUS_SHOW]],
+            'off' => ['value'=>Questions::STATUS_HIDE, 'text'=>Questions::STATUS_TEXT[Questions::STATUS_HIDE], 'color' => Questions::STATUS_LABEL[Questions::STATUS_HIDE]],
+        ]);
         $form->image('banner', __('广告图'));
         $form->text('title', __('标题'));
         $form->textarea('description', __('描述'));
         $form->text('submit_btn_text', __('提交按钮文案'));
         $form->text('redirect_text', __('跳转文案'));
+
+        $form->divider();
+        $form->hasMany('item', __('问题列表'), function (Form\NestedForm $form) {
+            $form->text('title', __('标题'));
+            $form->text('value', __('选项'))->help('多个选项按照英文逗号分隔');
+            $form->switch('status', __('是否显示'))->states([
+                'on' => ['value'=>QuestionItems::STATUS_SHOW, 'text'=>QuestionItems::STATUS_TEXT[QuestionItems::STATUS_SHOW], 'color' => QuestionItems::STATUS_LABEL[QuestionItems::STATUS_SHOW]],
+                'off' => ['value'=>QuestionItems::STATUS_HIDE, 'text'=>QuestionItems::STATUS_TEXT[QuestionItems::STATUS_HIDE], 'color' => QuestionItems::STATUS_LABEL[QuestionItems::STATUS_HIDE]],
+            ]);
+        });
 
 
         return $form;

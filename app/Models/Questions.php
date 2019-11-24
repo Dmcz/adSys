@@ -24,4 +24,9 @@ class Questions extends Model
     {
         return $this->belongsTo('App\User','user_id','id');
     }
+
+    public function item()
+    {
+        return $this->hasMany(QuestionItems::class, 'question_id');
+    }
 }
