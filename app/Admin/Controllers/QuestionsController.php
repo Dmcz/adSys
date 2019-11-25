@@ -29,6 +29,9 @@ class QuestionsController extends AdminController
         $grid = new Grid(new Questions);
 
         $grid->column('id', __('Id'));
+        $grid->column('no', __('编号'))->link(function(){
+            return route('questionnaire',['no'=>$this->no]);
+        });
         $grid->column('user.name', __('所属用户'));
         $grid->column('title', __('标题'));
         $grid->column('status', __('是否显示'))->using(Questions::STATUS_TEXT)->label(Questions::STATUS_LABEL);

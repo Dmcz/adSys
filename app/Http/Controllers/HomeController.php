@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \App\Models\Questions;
 
 class HomeController extends Controller
 {
@@ -13,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+       
     }
 
     /**
@@ -27,8 +28,15 @@ class HomeController extends Controller
     }
 
 
-    public function question()
+    public function questionnaire($no = '')
     {
-        # code...
+        $question = Questions::where('no',$no)->first();
+        if(empty($question)){
+            abort(404);
+        }
+
+        return view('questionnaire',[
+            'question' => $question
+        ]);
     }
 }

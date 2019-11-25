@@ -20,3 +20,4 @@ Auth::routes([
 ]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/questionnaire/{no}', 'HomeController@questionnaire')->name('questionnaire');
