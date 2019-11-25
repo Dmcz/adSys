@@ -16,10 +16,10 @@ class CreateQuestionsTable extends Migration
         Schema::create('questions', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->comment('所属用户id');
-            $table->tinyInteger('status')->comment('状态');
-            $table->string('banner')->comment('广告图');
-            $table->string('submit_btn_text')->comment('提交按钮文案');
-            $table->string('redirect_text')->comment('跳转提醒文案');
+            $table->tinyInteger('status')->default(0)->comment('状态');
+            $table->string('banner')->default('')->comment('广告图');
+            $table->string('submit_btn_text')->default('')->comment('提交按钮文案');
+            $table->string('redirect_text')->default('')->comment('跳转提醒文案');
             $table->timestamps();
             $table->softDeletes();
 

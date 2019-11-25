@@ -58,7 +58,7 @@ class QuestionsController extends AdminController
             $user->email();
         });
         $show->field('status', __('是否显示'))->using(Questions::STATUS_TEXT);
-        $show->field('banner', __('广告图'))->image();
+        $show->field('banner', __('banner'))->image();
         $show->field('description', __('Description'));
         $show->field('submit_btn_text', __('提交按钮文案'));
         $show->field('redirect_text', __('跳转文案'));
@@ -82,11 +82,11 @@ class QuestionsController extends AdminController
             'on' => ['value'=>Questions::STATUS_SHOW, 'text'=>Questions::STATUS_TEXT[Questions::STATUS_SHOW], 'color' => Questions::STATUS_LABEL[Questions::STATUS_SHOW]],
             'off' => ['value'=>Questions::STATUS_HIDE, 'text'=>Questions::STATUS_TEXT[Questions::STATUS_HIDE], 'color' => Questions::STATUS_LABEL[Questions::STATUS_HIDE]],
         ]);
-        $form->image('banner', __('广告图'));
+        $form->image('banner', __('banner'));
         $form->text('title', __('标题'));
         $form->textarea('description', __('描述'));
-        $form->text('submit_btn_text', __('提交按钮文案'));
-        $form->text('redirect_text', __('跳转文案'));
+        $form->text('submit_btn_text', __('提交按钮文案'))->default('提交');
+        $form->text('redirect_text', __('跳转文案'))->default('提交成功');
 
         $form->divider();
         $form->hasMany('item', __('问题列表'), function (Form\NestedForm $form) {
@@ -97,7 +97,6 @@ class QuestionsController extends AdminController
                 'off' => ['value'=>QuestionItems::STATUS_HIDE, 'text'=>QuestionItems::STATUS_TEXT[QuestionItems::STATUS_HIDE], 'color' => QuestionItems::STATUS_LABEL[QuestionItems::STATUS_HIDE]],
             ]);
         });
-
 
         return $form;
     }

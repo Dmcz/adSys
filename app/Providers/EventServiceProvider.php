@@ -29,6 +29,6 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
 
-        //
+        \App\Models\Questions::observe(\App\Observers\QuestionsObserver::class);
     }
 }

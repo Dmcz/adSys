@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 
 class Questions extends Model
 {
@@ -28,5 +29,17 @@ class Questions extends Model
     public function item()
     {
         return $this->hasMany(QuestionItems::class, 'question_id');
+    }
+
+    public static function buildNo()
+    {
+        while(true){
+            $random = Str::random('10');
+            if(empty(static::where('no', $random)->first())){
+                break;
+            }
+        }
+        
+        return $random;
     }
 }
