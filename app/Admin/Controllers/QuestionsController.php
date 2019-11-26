@@ -88,6 +88,9 @@ class QuestionsController extends AdminController
         $form->image('banner', __('banner'));
         $form->text('title', __('标题'));
         $form->textarea('description', __('描述'));
+        $form->text('form_title', __('表单标题'))->default('');
+        $form->text('bottom_title', __('底部标题'))->default('');
+        $form->text('bottom_info', __('标题信息'))->default('');
         $form->text('submit_btn_text', __('提交按钮文案'))->default('提交');
         $form->text('redirect_text', __('跳转文案'))->default('提交成功');
 

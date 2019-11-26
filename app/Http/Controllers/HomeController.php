@@ -39,4 +39,14 @@ class HomeController extends Controller
             'question' => $question
         ]);
     }
+
+    public function questionnaireSave($no = '')
+    {
+        $question = Questions::where('no',$no)->first();
+        if(empty($question)){
+            abort(404);
+        }
+
+        
+    }
 }
