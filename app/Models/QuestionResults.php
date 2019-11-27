@@ -14,4 +14,9 @@ class QuestionResults extends Model
     protected $casts = [
         'content' => 'array',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\User','user_id','id');
+    }
 }
