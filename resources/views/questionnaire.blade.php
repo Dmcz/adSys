@@ -134,7 +134,16 @@
 						contact_name: contact_name,
 						contact_mobile: contact_mobile,
 					},
-					type: 'POST'
+					type: 'POST',
+					success: function(res){
+						if(res.status != 'success'){
+							mui.alert(res.msg);
+						}else{
+							mui.alert(res.msg,function(){
+								window.location.href = window.location.href;
+							});
+						}
+					}
 				});
 			});
 
