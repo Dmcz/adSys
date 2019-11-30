@@ -22,3 +22,13 @@ Auth::routes([
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/questionnaire/{no}', 'HomeController@questionnaire')->name('questionnaire');
 Route::post('/questionnaire/{no}', 'HomeController@questionnaireSave')->name('questionnaire.save');
+
+
+Route::prefix('/management')->middleware('auth')->group(function (){
+    Route::get('/', function(){
+        return redirect('/management/questionresults');
+    });
+
+    Route::get('/questionresults', 'QuestionResultsController@index');
+    Route::get('/questionresults/{id}', 'QuestionResultsController@show');
+});
