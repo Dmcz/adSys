@@ -30,7 +30,7 @@ class QuestionResultsController extends AdminController
         $grid = new Grid(new QuestionResults);
 
         $grid->column('id', __('Id'));
-        $grid->column('user_id', __('所属用户'));
+        $grid->column('user.name', __('所属用户'));
         $grid->column('contact_name', __('联系人姓名'));
         $grid->column('contact_mobile', __('联系人电话'));
         $grid->column('created_at', __('创建时间'));
@@ -42,6 +42,8 @@ class QuestionResultsController extends AdminController
             // 去掉编辑
             $actions->disableEdit();
         });
+
+        $grid->exporter(new \App\Admin\Exporters\QuestionResultsExporter());
 
         return $grid;
     }

@@ -64,7 +64,7 @@
 				<input name="checkbox1" value="Item 1" type="checkbox">
 			</div> -->
 
-			<button type="button" class="mui-btn mui-btn-primary submitbtn">{{$question->submit_btn_text}}</button>
+			<button type="button" class="mui-btn mui-btn-primary submitbtn" >{{$question->submit_btn_text}}</button>
 		</div>
         @endif
 
