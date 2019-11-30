@@ -7,7 +7,7 @@
 		<title></title>
 		<script src="{{ asset('questionnaire/js/mui.min.js') }}"></script>
 		<link href="{{ asset('questionnaire/css/mui.min.css') }}" rel="stylesheet" />
-		<link href="{{ asset('questionnaire/css/index.css') }}" rel="stylesheet" />
+		<link href="{{ asset('questionnaire/css/index.css?v=1') }}" rel="stylesheet" />
 
         @if($question['banner'])
 		<div class="bgimg">
