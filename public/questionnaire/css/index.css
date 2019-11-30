@@ -1,4 +1,4 @@
-body {
+body{
 	background: #fff
 }
 
@@ -20,54 +20,54 @@ body {
 	text-align: center
 }
 
-.blackArea>p:first-child {
+.blackArea>p:first-child{
 	font-weight: 800;
 	font-size: 15px;
 	color: #fff;
 	margin-bottom: 0
 }
 
-.subtitle {
+.subtitle{
 	font-weight: normal;
 	color: #ccc;
 	font-size: 12px;
 	margin-top: 10px
 }
 
-.content {
+.content{
 	padding: 15px
 }
 
-.redFont {
+.redFont{
 	color: #f00
 }
 
-.blueFont {
+.blueFont{
 	color: #007aff
 }
 
-.blackFont {
+.blackFont{
 	color: #444;
 	font-weight: bold
 }
 
-.radioTitle {
+.radioTitle{
 	font-size: 16px;
 	margin-top: 10px;
 	text-indent: 15px
 }
 
-.formGrop>.mui-input-row {
+.formGrop>.mui-input-row{
 	display: inline-block;
 	width: 48%
 }
 
-input[type=text] {
+input[type=text]{
 	border: none!important;
 	border-bottom: 1px solid #ccc!important
 }
 
-.submitbtn {
+.submitbtn{
 	width: 90%;
 	margin-left: 5%;
 	padding: 10px 0;
