@@ -49,10 +49,8 @@
 			@endforeach
 		</div>
 		@else
-		<div class="formGrop">
-			<div class="mui-input-row mui-radio mui-left ">
-				<input name="qestion[{{$loop->index}}]['answer']" class="answerText{{$loop->index}}" type="text">
-			</div>
+		<div class="mui-input-row">
+			<input name="qestion[{{$loop->index}}]['answer']" class="answerText{{$loop->index}}" type="text">
 		</div>
 		@endif
 		@endforeach
